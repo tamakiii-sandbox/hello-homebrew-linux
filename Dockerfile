@@ -16,13 +16,11 @@ RUN yum update -y && \
 
 RUN NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-RUN echo '# Set PATH, MANPATH, etc., for Homebrew.' >> /root/.profile && \
-    echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /root/.profile && \
+RUN echo '# Set PATH, MANPATH, etc., for Homebrew.' >> ~/.profile && \
+    echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> ~/.profile && \
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
-RUN source /root/.profile
-
-RUN brew install gcc
+RUN source ~/.profile && brew install gcc
 
 # ==> Installation successful!
 #

@@ -13,7 +13,7 @@ build:
 	docker build -t $(IMAGE) .
 
 bash: build
-	docker run -it --rm $(IMAGE) bash
+	docker run -it --rm $(IMAGE) bash -l
 
 clean:
 	@echo "nothing to do: $@"
